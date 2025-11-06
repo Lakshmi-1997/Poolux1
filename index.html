@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Poolux Furniture</title>
+  <style>
+    * {margin: 0; padding: 0; box-sizing: border-box;}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-image: url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      background: rgba(255,255,255,0.9);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    header h1 {color: #444; font-size: 26px; font-weight: 700;}
+    nav a {
+      margin: 0 12px;
+      text-decoration: none;
+      color: #444;
+      font-weight: 500;
+    }
+    nav a:hover {color: #ff9900;}
+
+    section {
+      background: rgba(255,255,255,0.85);
+      margin: 40px 10%;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+    }
+
+    section h2 {
+      text-align: center;
+      color: #222;
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      text-align: center;
+      color: #555;
+      max-width: 800px;
+      margin: 0 auto 30px auto;
+      line-height: 1.6;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      justify-items: center;
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 350px;
+      height: 230px;
+      object-fit: cover;
+      border-radius: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+
+    .gallery img:hover {transform: scale(1.05);}
+
+    /* Popup styles */
+    .popup {
+      display: none;
+      position: fixed;
+      z-index: 200;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .popup img {
+      max-width: 90%;
+      max-height: 80%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(255,255,255,0.3);
+    }
+
+    .popup span {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    footer {
+      background: rgba(255,255,255,0.9);
+      text-align: center;
+      padding: 20px;
+      color: #333;
+      font-size: 15px;
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+    }
+
+    footer a {color: #ff9900; text-decoration: none;}
+
+    /* Button hover */
+    .cta-button {
+      background:#ff9900;
+      color:#fff;
+      text-decoration:none;
+      padding:12px 28px;
+      border-radius:25px;
+      font-weight:600;
+      box-shadow:0 4px 8px rgba(0,0,0,0.2);
+      transition:all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      background:#e68a00;
+      transform: scale(1.05);
+    }
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Poolux Furniture</h1>
+    <nav>
+      <a href="#sofas">Sofas</a>
+      <a href="#dining">Dining</a>
+      <a href="#cupboards">Cupboards</a>
+      <a href="#beds">Beds</a>
+      <a href="#dressingtables">Dressing Tables</a>
+      <a href="#woodensets">Wooden Sets</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero / Welcome Section -->
+  <section id="home" style="text-align:center; color:#222; position:relative; padding:100px 20px;">
+    <div style="background: rgba(255,255,255,0.92); display:inline-block; padding:50px 60px; border-radius:20px; box-shadow:0 6px 20px rgba(0,0,0,0.25); max-width:850px;">
+      <h2 style="font-size:38px; color:#222; margin-bottom:15px;">Welcome to <span style="color:#ff9900;">Poolux Furniture</span></h2>
+      <p style="font-size:18px; color:#444; line-height:1.7; margin-bottom:30px;">
+        For over <strong>30 years</strong>, Poolux Furniture has been creating <strong>luxury furniture</strong> that transforms houses into elegant homes.  
+        Every piece is crafted with care, blending <strong>traditional craftsmanship</strong> and <strong>modern design</strong> to bring comfort, style, and warmth to your space.
+      </p>
+      <a href="#sofas" class="cta-button">🛋️ View Our Collection</a>
+    </div>
+  </section>
+
+  <section id="sofas">
+    <h2>Sofas</h2>
+    <p>Luxury and comfort blended with perfect craftsmanship.</p>
+    <div class="gallery">
+      <img src="sofa_1.jpg" alt="Sofa 1">
+      <img src="sofa_2.jpg" alt="Sofa 2">
+      <img src="sofa_3.jpg" alt="Sofa 3">
+      <img src="sofa_4.jpg" alt="Sofa 4">
+      <img src="sofa_5.jpg" alt="Sofa 5">
+      <img src="sofa_6.jpg" alt="Sofa 6">
+    </div>
+  </section>
+
+  <section id="dining">
+    <h2>Dining Sets</h2>
+    <p>Beautifully designed dining tables and chairs for every home.</p>
+    <div class="gallery">
+      <img src="dinningtable_1.jpg" alt="Dining Set 1">
+      <img src="dinningtable_2.jpg" alt="Dining Table 2">
+      <img src="dinningtable_3.jpg" alt="Dining Chair 3">
+    </div>
+  </section>
+
+  <section id="cupboards">
+    <h2>Wardrobes & Cupboards</h2>
+    <p>Elegant designs with maximum storage space and durability.</p>
+    <div class="gallery">
+      <img src="wadrobe_1.jpg" alt="Wardrobe 1">
+      <img src="wadrobe_2.jpg" alt="Cupboard 2">
+      <img src="wadrobe_3.jpg" alt="Pantry Cupboard 3">
+    </div>
+  </section>
+
+  <section id="beds">
+    <h2>Beds</h2>
+    <p>Comfort and beauty crafted to perfection.</p>
+    <div class="gallery">
+      <img src="bed_1.jpg" alt="Bed 1">
+      <img src="bed_2.jpg" alt="Bed 2">
+      <img src="bed_3.jpg" alt="Bed 3">
+	<img src="bed_4.jpg" alt="Bed 4">
+      <img src="bed_5.jpg" alt="Bed 5">
+      <img src="bed_6.jpg" alt="Bed 6">
+
+    </div>
+  </section>
+
+  <section id="dressingtables">
+    <h2>Dressing Tables</h2>
+    <p>Beauty crafted to perfection.</p>
+    <div class="gallery">
+      <img src="dressingtable_1.jpg" alt="Dressing Table 1">
+      <img src="dressingtable_2.jpg" alt="Dressing Table 2">
+      <img src="https://via.placeholder.com/350x230?text=Dressing+Table+3" alt="Dressing Table">
+    </div>
+  </section>
+
+  <section id="woodensets">
+    <h2>Wooden Chair Sets</h2>
+    <p>Explore our collection of wooden chair sets.</p>
+    <div class="gallery">
+      <img src="woodenset_1.jpg" alt="Chair">
+      <img src="woodenset_2.jpg" alt="Coffee Table">
+      <img src="woddenset_3.jpg" alt="Book Rack">
+      <img src="woodenset_4.jpg" alt="Chair">
+      <img src="woodenset_5.jpg" alt="Coffee Table">
+      <img src="woodenset_6.jpg" alt="Book Rack">
+    </div>
+  </section>
+
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p>📞 <strong>071 489 7295</strong></p>
+    <p>✉️ <a href="mailto:pooluxfurniture@gmail.com">pooluxfurniture@gmail.com</a></p>
+    <p>📘 <a href="https://www.facebook.com/pooluxfurniture" target="_blank">facebook.com/pooluxfurniture</a></p>
+    <p><strong>Poolux Furniture (Pvt) Ltd, 218/2 Kandy Rd, Horagasmankada, Danowita, Sri Lanka</strong></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Poolux Furniture | Designed with ❤️ by Poolux</p>
+  </footer>
+
+  <!-- Popup container -->
+  <div class="popup" id="popup">
+    <span id="closePopup">&times;</span>
+    <img id="popupImg" src="" alt="">
+  </div>
+
+  <script>
+    // JavaScript for popup image viewer
+    const popup = document.getElementById('popup');
+    const popupImg = document.getElementById('popupImg');
+    const closePopup = document.getElementById('closePopup');
+
+    document.querySelectorAll('.gallery img').forEach(img => {
+      img.addEventListener('click', () => {
+        popup.style.display = 'flex';
+        popupImg.src = img.src;
+      });
+    });
+
+    closePopup.addEventListener('click', () => {
+      popup.style.display = 'none';
+    });
+
+    popup.addEventListener('click', (e) => {
+      if (e.target === popup) popup.style.display = 'none';
+    });
+  </script>
+
+</body>
+</html>
