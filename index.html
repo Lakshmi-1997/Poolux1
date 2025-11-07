@@ -17,8 +17,8 @@
     }
 
     header {
-      background: rgba(255,255,255,0.9);
-      padding: 20px 40px;
+      background: rgba(255,255,255,0.95);
+      padding: 15px 25px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -28,14 +28,58 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    header h1 {color: #444; font-size: 26px; font-weight: 700;}
+    header h1 {color: #444; font-size: 24px; font-weight: 700;}
+
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
     nav a {
       margin: 0 12px;
       text-decoration: none;
       color: #444;
       font-weight: 500;
+      transition: color 0.3s ease;
     }
+
     nav a:hover {color: #ff9900;}
+
+    /* Mobile menu */
+    .menu-toggle {
+      display: none;
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: rgba(255,255,255,0.95);
+        position: absolute;
+        top: 70px;
+        left: 0;
+        text-align: center;
+        padding: 10px 0;
+        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+      }
+
+      nav a {
+        margin: 10px 0;
+      }
+
+      .menu-toggle {
+        display: block;
+        color: #444;
+      }
+
+      nav.active {
+        display: flex;
+      }
+    }
 
     section {
       background: rgba(255,255,255,0.85);
@@ -62,7 +106,7 @@
 
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 20px;
       justify-items: center;
     }
@@ -70,7 +114,7 @@
     .gallery img {
       width: 100%;
       max-width: 350px;
-      height: 230px;
+      height: 220px;
       object-fit: cover;
       border-radius: 15px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -80,7 +124,6 @@
 
     .gallery img:hover {transform: scale(1.05);}
 
-    /* Popup styles */
     .popup {
       display: none;
       position: fixed;
@@ -122,7 +165,6 @@
 
     footer a {color: #ff9900; text-decoration: none;}
 
-    /* Button hover */
     .cta-button {
       background:#ff9900;
       color:#fff;
@@ -139,13 +181,22 @@
       transform: scale(1.05);
     }
 
+    @media (max-width: 600px) {
+      header h1 {font-size: 20px;}
+      section {margin: 20px 5%; padding: 25px;}
+      section h2 {font-size: 24px;}
+      section p {font-size: 15px;}
+      .cta-button {padding:10px 20px; font-size: 14px;}
+      .gallery img {height: 180px;}
+    }
   </style>
 </head>
 <body>
 
   <header>
     <h1>Poolux Furniture</h1>
-    <nav>
+    <span class="menu-toggle" id="menuToggle">☰</span>
+    <nav id="navMenu">
       <a href="#sofas">Sofas</a>
       <a href="#dining">Dining</a>
       <a href="#cupboards">Cupboards</a>
@@ -156,9 +207,8 @@
     </nav>
   </header>
 
-  <!-- Hero / Welcome Section -->
-  <section id="home" style="text-align:center; color:#222; position:relative; padding:100px 20px;">
-    <div style="background: rgba(255,255,255,0.92); display:inline-block; padding:50px 60px; border-radius:20px; box-shadow:0 6px 20px rgba(0,0,0,0.25); max-width:850px;">
+  <section id="home" style="text-align:center; padding:100px 20px;">
+    <div style="background: rgba(255,255,255,0.92); display:inline-block; padding:50px 30px; border-radius:20px; box-shadow:0 6px 20px rgba(0,0,0,0.25); max-width:850px;">
       <h2 style="font-size:38px; color:#222; margin-bottom:15px;">Welcome to <span style="color:#ff9900;">Poolux Furniture</span></h2>
       <p style="font-size:18px; color:#444; line-height:1.7; margin-bottom:30px;">
         For over <strong>30 years</strong>, Poolux Furniture has been creating <strong>luxury furniture</strong> that transforms houses into elegant homes.  
@@ -208,10 +258,9 @@
       <img src="bed_1.jpg" alt="Bed 1">
       <img src="bed_2.jpg" alt="Bed 2">
       <img src="bed_3.jpg" alt="Bed 3">
-	<img src="bed_4.jpg" alt="Bed 4">
+      <img src="bed_4.jpg" alt="Bed 4">
       <img src="bed_5.jpg" alt="Bed 5">
       <img src="bed_6.jpg" alt="Bed 6">
-
     </div>
   </section>
 
@@ -250,14 +299,20 @@
     <p>© 2025 Poolux Furniture | Designed with ❤️ by Poolux</p>
   </footer>
 
-  <!-- Popup container -->
   <div class="popup" id="popup">
     <span id="closePopup">&times;</span>
     <img id="popupImg" src="" alt="">
   </div>
 
   <script>
-    // JavaScript for popup image viewer
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
+
+    // Popup image viewer
     const popup = document.getElementById('popup');
     const popupImg = document.getElementById('popupImg');
     const closePopup = document.getElementById('closePopup');
@@ -277,7 +332,8 @@
       if (e.target === popup) popup.style.display = 'none';
     });
   </script>
-
 </body>
 </html>
+
+
 
